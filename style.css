@@ -16,6 +16,7 @@ body {
     left: 0; /* Align to the left edge */
     width: 100%; /* Make it go from left to right */
     z-index: 1000; /* Ensure it stays on top of other content */
+    box-sizing: border-box; /* Crucial: Makes padding included in the 100% width */
 
     display: flex; /* Use Flexbox to arrange items */
     justify-content: space-between; /* Pushes content to left and right edges */
