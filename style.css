@@ -14,10 +14,8 @@ body {
     position: fixed; /* Makes the nav bar stick to the top */
     top: 0; /* Align to the top edge */
     left: 0; /* Align to the left edge */
-    /* ***** IMPORTANT FIX FOR WIDESCREEN SCROLLBAR ISSUE ***** */
-    width: calc(100% - 40px); /* Make it 100% minus a fixed buffer (e.g., 40px) */
-    right: 20px; /* Push it 20px from the right edge */
-    /* This combination should ensure it's always visible */
+    width: 100%; /* Make it go from left to right - this is back to full width */
+    /* Removed: right: 20px; and width: calc(...) */
 
     z-index: 1000; /* Ensure it stays on top of other content */
     box-sizing: border-box; /* Ensures padding is included in the width */
@@ -39,27 +37,33 @@ body {
     margin-right: 15px; /* Space between icon and other potential left-aligned items */
 }
 
-.navbar-right ul {
-    list-style: none; /* Remove bullet points from list */
-    margin: 0;
-    padding: 0;
-    display: flex; /* Arrange list items horizontally */
-    gap: 20px; /* Space between links */
+.navbar-right {
+    /* This new rule adds spacing to the right of the buttons */
+    padding-right: 20px; /* Add padding here to push buttons away from the scrollbar */
+    /* This value might need slight adjustment (e.g., 25px or 30px) depending on OS/browser scrollbar width */
 }
 
-.navbar-right li a {
-    color: white; /* White text for links */
-    text-decoration: none; /* Remove underline from links */
-    padding: 8px 15px; /* Padding around each link to make it look like a button */
-    border-radius: 5px; /* Rounded corners for button effect */
-    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
-    white-space: nowrap; /* Prevent text from wrapping on small screens */
-}
-
-    .navbar-right li a:hover {
-        background-color: #555; /* Darker background on hover */
-        color: #fff; /* White text on hover */
+    .navbar-right ul {
+        list-style: none; /* Remove bullet points from list */
+        margin: 0;
+        padding: 0;
+        display: flex; /* Arrange list items horizontally */
+        gap: 20px; /* Space between links */
     }
+
+    .navbar-right li a {
+        color: white; /* White text for links */
+        text-decoration: none; /* Remove underline from links */
+        padding: 8px 15px; /* Padding around each link to make it look like a button */
+        border-radius: 5px; /* Rounded corners for button effect */
+        transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+        white-space: nowrap; /* Prevent text from wrapping on small screens */
+    }
+
+        .navbar-right li a:hover {
+            background-color: #555; /* Darker background on hover */
+            color: #fff; /* White text on hover */
+        }
 
 /* --- Main Content Area Styling (keeping previous styles) --- */
 .main-content {
