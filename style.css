@@ -10,13 +10,17 @@ body {
 /* --- Navigation Bar Styling --- */
 .navbar {
     background-color: #333; /* Dark grey background for the nav bar */
-    padding: 5px 30px; /* Increased right padding to 30px */
+    padding: 5px 20px; /* Vertical padding 5px, horizontal padding 20px */
     position: fixed; /* Makes the nav bar stick to the top */
     top: 0; /* Align to the top edge */
     left: 0; /* Align to the left edge */
-    width: 100%; /* Make it go from left to right */
+    /* ***** IMPORTANT FIX FOR WIDESCREEN SCROLLBAR ISSUE ***** */
+    width: calc(100% - 40px); /* Make it 100% minus a fixed buffer (e.g., 40px) */
+    right: 20px; /* Push it 20px from the right edge */
+    /* This combination should ensure it's always visible */
+
     z-index: 1000; /* Ensure it stays on top of other content */
-    box-sizing: border-box; /* Ensures padding is included in the 100% width */
+    box-sizing: border-box; /* Ensures padding is included in the width */
 
     display: flex; /* Use Flexbox to arrange items */
     justify-content: space-between; /* Pushes content to left and right edges */
