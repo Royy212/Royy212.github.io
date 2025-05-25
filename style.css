@@ -1,70 +1,141 @@
-/* --- New Sections Styling --- */
+/* Basic styling for the entire page */
+body {
+    margin: 0; /* Remove default body margin */
+    font-family: Arial, sans-serif; /* Choose a clean font */
+    background-color: #f0f0f0; /* Light grey background */
+    color: #333; /* Dark grey text */
+    padding-top: 70px; /* IMPORTANT: Add padding to prevent content from going under the fixed navbar. Adjust if navbar height changes. */
+}
+
+/* --- Navigation Bar Styling --- */
+.navbar {
+    background-color: #333; /* Dark grey background for the nav bar */
+    padding: 5px 20px; /* Vertical and horizontal padding */
+    position: fixed; /* Makes the nav bar stick to the top */
+    top: 0; /* Align to the top edge */
+    left: 0; /* Align to the left edge */
+    width: 100%; /* Make it go from left to right */
+    z-index: 1000; /* Ensure it stays on top of other content */
+
+    display: flex; /* Use Flexbox to arrange items */
+    justify-content: space-between; /* Pushes content to left and right edges */
+    align-items: center; /* Vertically center items */
+}
+
+.navbar-left {
+    /* Styles for the container holding the icon */
+    display: flex;
+    align-items: center;
+}
+
+.navbar-icon {
+    height: 50px; /* Adjust icon size as needed */
+    width: auto; /* Maintain aspect ratio */
+    margin-right: 15px; /* Space between icon and other potential left-aligned items */
+}
+
+.navbar-right ul {
+    list-style: none; /* Remove bullet points from list */
+    margin: 0;
+    padding: 0;
+    display: flex; /* Arrange list items horizontally */
+    gap: 20px; /* Space between links */
+}
+
+.navbar-right li a {
+    color: white; /* White text for links */
+    text-decoration: none; /* Remove underline from links */
+    padding: 8px 15px; /* Padding around each link to make it look like a button */
+    border-radius: 5px; /* Rounded corners for button effect */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+    white-space: nowrap; /* Prevent text from wrapping on small screens */
+}
+
+    .navbar-right li a:hover {
+        background-color: #555; /* Darker background on hover */
+        color: #fff; /* White text on hover */
+    }
+
+/* --- Main Content Area Styling (keeping previous styles) --- */
+.main-content {
+    text-align: center; /* Center align the text below the navbar */
+    padding: 20px;
+    max-width: 800px; /* Limit content width for readability */
+    margin: 0 auto; /* Center the main content block */
+}
+
+/* Basic styling for headings and paragraphs */
+h1 {
+    color: #007bff; /* Blue heading color */
+    margin-bottom: 10px;
+}
+
+p {
+    line-height: 1.6; /* Improve readability of paragraphs */
+    margin-bottom: 10px;
+}
+
+/* --- New Sections Styling (keeping previous styles) --- */
 .section-container {
-    background-color: #fff; /* White background for sections */
-    border-radius: 8px; /* Slightly rounded corners */
+    background-color: #fff;
+    border-radius: 8px;
     padding: 30px;
-    margin-bottom: 25px; /* Space between sections */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow */
-    text-align: left; /* Align text within sections to the left */
+    margin-bottom: 25px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    text-align: left;
 }
 
     .section-container h2 {
-        color: #007bff; /* Match heading color from h1 */
-        text-align: center; /* Center section headings */
+        color: #007bff;
+        text-align: center;
         margin-top: 0;
         margin-bottom: 20px;
     }
 
 .social-links {
-    list-style: none; /* Remove bullets */
+    list-style: none;
     padding: 0;
-    display: flex; /* Arrange social links in a row */
-    flex-wrap: wrap; /* Allow links to wrap to the next line */
-    justify-content: center; /* Center the links */
-    gap: 20px; /* Space between social links */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
 }
 
     .social-links li a {
-        background-color: #007bff; /* Blue button for social links */
+        background-color: #007bff;
         color: white;
         padding: 10px 20px;
         border-radius: 5px;
         text-decoration: none;
         transition: background-color 0.3s ease;
-        white-space: nowrap; /* Prevent link text from wrapping */
+        white-space: nowrap;
     }
 
         .social-links li a:hover {
-            background-color: #0056b3; /* Darker blue on hover */
+            background-color: #0056b3;
         }
 
 .game-list ul {
-    list-style: none; /* Remove bullets */
+    list-style: none;
     padding: 0;
 }
 
 .game-list li {
-    margin-bottom: 5px; /* Space between game links */
+    margin-bottom: 5px;
 }
 
 .game-list a {
-    color: #007bff; /* Blue for game links */
+    color: #007bff;
     text-decoration: none;
 }
 
     .game-list a:hover {
-        text-decoration: underline; /* Underline on hover */
+        text-decoration: underline;
     }
-
-.game-list h3 {
-    color: #333;
-    margin-top: 20px;
-    margin-bottom: 10px;
-}
 
 hr {
     border: none;
     border-top: 1px solid #ccc;
     margin: 40px auto;
-    width: 50%; /* Make the separator line shorter */
+    width: 50%;
 }
