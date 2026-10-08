@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.BonoboGames.EvilDoll2",
+      "sha256_cert_fingerprints": [
+        "20:73:38:64:EC:40:F5:4C:5D:03:A4:22:E7:E9:F4:D0:DD:66:81:72:4C:2D:41:FC:F8:F5:4B:92:80:64:64:2B"
+      ]
+    }
+  }
+]
