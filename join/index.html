@@ -19,6 +19,7 @@
         <h1>You're invited to Evil Doll 2</h1>
         <p>Lobby code</p>
         <div class="code" id="code">----</div>
+        <a class="button" id="open" href="#" style="display:none">Open the game</a>
         <a class="button" id="store" href="#">Get the game</a>
         <p id="note">Already installed? Open Evil Doll 2, go to Online and type the code.</p>
     </div>
@@ -32,6 +33,7 @@
         var code = (new URLSearchParams(location.search).get("c") || "").replace(/[^A-Za-z0-9]/g, "").slice(0, 12);
         document.getElementById("code").textContent = code || "----";
 
+        var STEAM_APP_ID = "3895090";
         var ua = navigator.userAgent || "";
         var target;
         if (/Android/i.test(ua)) {
@@ -46,9 +48,20 @@
 
         document.getElementById("store").href = target;
 
-        // If Android did not open the app itself (not installed), go to the store.
+        var open = document.getElementById("open");
         if (/Android/i.test(ua) && code) {
-            setTimeout(function () { location.href = target; }, 1200);
+            // Opens the game when it is installed (any build, also an APK), otherwise Chrome goes to the store.
+            // (When Android App Links are verified the game already opened before this page showed.)
+            var intentUrl = "intent://join?c=" + code + "#Intent;scheme=evildoll2;package=" + PACKAGE +
+                ";S.browser_fallback_url=" + encodeURIComponent(target) + ";end";
+            open.href = intentUrl;
+            open.style.display = "block";
+            setTimeout(function () { location.href = intentUrl; }, 600);
+        } else if (!/iPhone|iPad|iPod|Android/i.test(ua) && code) {
+            // PC: starts the Steam game with the code as launch option (works when the game is not running yet).
+            open.href = "steam://run/" + STEAM_APP_ID + "//-join=" + code;
+            open.textContent = "Open in Steam";
+            open.style.display = "block";
         }
     </script>
 </body>
